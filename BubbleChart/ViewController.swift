@@ -12,12 +12,6 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var bubbleTest: UILabel!
     @IBOutlet weak var rectTest: UILabel!
-    @IBOutlet weak var bubLargestValue: UITextField!
-    @IBOutlet weak var bubSecVal: UITextField!
-    @IBOutlet weak var bubThirdVal: UITextField!
-    @IBOutlet weak var rectLargestVal: UITextField!
-    @IBOutlet weak var rectSecondVal: UITextField!
-    @IBOutlet weak var rectThirdVal: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
