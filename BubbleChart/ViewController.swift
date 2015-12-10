@@ -10,8 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var testLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        testLabel.text = "THIS IS THE TEST LABEL"
         // Do any additional setup after loading the view, typically from a nib.
     }
 
