@@ -8,18 +8,20 @@
 
 import UIKit
 
-class ChartView: UIView {
+class ChartBubView: UIView {
     
     var type: String = ""
-    var data: DataParser = DataParser(catagories: ["TerriblePears", "otherApple", "Banana"], quantity: [50,30,25], type: "rect")
+    var data: DataParser = DataParser(catagories: ["TerriblePears", "otherApple", "Banana"], quantity: [100,60,50], type: "bubble")
     var bubbleCollection: BubbleCollection = BubbleCollection()
     var rectCollection: RectangleCollection = RectangleCollection()
-
+    
     override func drawRect(rect: CGRect) {
         data.getScale({
             self.buildObjArr()
-            self.rectCollection.writeRectangles()
-            self.wirteLabels(self.rectCollection.setLabels())
+            self.bubbleCollection.calculateCenterOfCircles(self.bounds.height, width: self.bounds.width)
+            self.bubbleCollection.writeCircleToUI()
+            self.wirteLabels(self.bubbleCollection.setLabels())
+            
         })
     }
     
@@ -74,5 +76,5 @@ class ChartView: UIView {
         UIColor.redColor().setFill()
         path.fill()
     }
-
+    
 }

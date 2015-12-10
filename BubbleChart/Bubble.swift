@@ -34,7 +34,7 @@ class Bubble: NSObject {
     
     func makeLabel(){
         self.label.center = self.center!
-        self.label = UILabel(frame: CGRectMake(0, 0, self.radius*1.5, self.radius*1.5))
+        self.label = UILabel(frame: CGRectMake(self.center!.x-self.radius, self.center!.y-self.radius, self.radius*1.8, self.radius*1.8))
         self.label.text = self.title
         self.label.adjustsFontSizeToFitWidth = true
         self.label.textAlignment = .Center
@@ -47,8 +47,7 @@ class Bubble: NSObject {
     
     func writePath(){
         setColor()
-        print("HIT \(self.title)")
-        // CHECK LATER FOR CENTER
+        makeLabel()
         let path = UIBezierPath(arcCenter: self.center!,
             radius: self.radius,
             startAngle: self.startAngle,

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8pe-YV-HPW">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,36 +18,132 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ASFDASDFASDFASDFASDFASDF" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61M-8v-s4v">
-                                <rect key="frame" x="164" y="425" width="272" height="44"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxa-Hg-jyM">
+                                <rect key="frame" x="30" y="60" width="324" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5b7-uK-MTz">
-                                <rect key="frame" x="179" y="118" width="343" height="267"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mmk-ZV-gb0" customClass="ChartView" customModule="BubbleChart" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="267"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="267" id="4Kj-iG-23K"/>
-                                            <constraint firstAttribute="width" constant="343" id="TJS-Kn-Hpn"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIs-pS-kpK">
+                                <rect key="frame" x="30" y="253" width="324" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHA-TZ-1S0">
+                                <rect key="frame" x="144" y="201" width="97" height="33"/>
+                                <state key="normal" title="See bubble"/>
+                                <connections>
+                                    <segue destination="1S4-jv-qY6" kind="show" id="CWn-F1-mw7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hej-1f-bkz">
+                                <rect key="frame" x="139" y="420" width="107" height="33"/>
+                                <state key="normal" title="See Rectangles"/>
+                                <connections>
+                                    <segue destination="SIe-RX-y0V" kind="show" id="oJ5-27-0qe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="61M-8v-s4v" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5Mv-AT-dXV"/>
+                            <constraint firstItem="IIs-pS-kpK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="1nc-OT-lsD"/>
+                            <constraint firstItem="rxa-Hg-jyM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="3m1-Bb-ZNg"/>
+                            <constraint firstItem="eHA-TZ-1S0" firstAttribute="top" secondItem="rxa-Hg-jyM" secondAttribute="bottom" constant="98" id="5hf-Sv-MHC"/>
+                            <constraint firstItem="hej-1f-bkz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ava-Ys-Ic5"/>
+                            <constraint firstItem="rxa-Hg-jyM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="EDH-Li-fIW"/>
+                            <constraint firstItem="hej-1f-bkz" firstAttribute="top" secondItem="IIs-pS-kpK" secondAttribute="bottom" constant="124" id="ea4-hO-EWy"/>
+                            <constraint firstItem="eHA-TZ-1S0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kAx-zI-Jft"/>
+                            <constraint firstItem="IIs-pS-kpK" firstAttribute="top" secondItem="rxa-Hg-jyM" secondAttribute="bottom" constant="150" id="wDc-GA-gTr"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="vu4-9t-fgJ"/>
                     <connections>
-                        <outlet property="testLabel" destination="61M-8v-s4v" id="gJu-AD-Msw"/>
+                        <outlet property="bubbleTest" destination="rxa-Hg-jyM" id="WQy-iU-hIe"/>
+                        <outlet property="rectTest" destination="IIs-pS-kpK" id="Wvs-AW-MhX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1192" y="337"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Zwl-RC-gDA">
+            <objects>
+                <viewController id="1S4-jv-qY6" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zrw-BI-x4P"/>
+                        <viewControllerLayoutGuide type="bottom" id="2LN-eF-9CH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lzG-pX-JtV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xRa-Q8-MDz" customClass="ChartBubView" customModule="BubbleChart" customModuleProvider="target">
+                                <rect key="frame" x="88" y="87" width="184" height="184"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="184" id="4of-QA-DZ4"/>
+                                    <constraint firstAttribute="height" constant="184" id="k8u-3R-6vp"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xRa-Q8-MDz" firstAttribute="top" secondItem="Zrw-BI-x4P" secondAttribute="bottom" constant="67" id="1Fp-Jo-tr0"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rNi-Z3-GUY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1926" y="337"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="m1q-Ce-GLy">
+            <objects>
+                <viewController id="SIe-RX-y0V" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qrm-zv-OV3"/>
+                        <viewControllerLayoutGuide type="bottom" id="cjZ-7c-SGN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1eD-pI-Gje">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kKf-lQ-AiV" customClass="ChartView" customModule="BubbleChart" customModuleProvider="target">
+                                <rect key="frame" x="82" y="78" width="184" height="184"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="184" id="5xQ-6A-0j6"/>
+                                    <constraint firstAttribute="width" constant="184" id="E3I-Y4-Jtt"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kKf-lQ-AiV" firstAttribute="top" secondItem="Qrm-zv-OV3" secondAttribute="bottom" constant="58" id="SNI-oL-b4i"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dzd-sY-Pjb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1932" y="1082"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ufo-ST-8oN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8pe-YV-HPW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sfz-Oo-RiA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="fbU-iy-4es"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="epR-KZ-RrM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="380" y="337"/>
         </scene>

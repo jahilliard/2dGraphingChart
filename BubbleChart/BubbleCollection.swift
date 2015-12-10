@@ -10,6 +10,7 @@ import UIKit
 
 class BubbleCollection: NSObject {
     var bubbleArr: Array<Bubble> = []
+    var bubLabelArr: Array<UILabel> = []
 //    var previousRadius: CGFloat = 0
 //    var previousCenter: CGPoint = CGPoint(x: 0, y: 0)
     
@@ -19,14 +20,15 @@ class BubbleCollection: NSObject {
         var bubbleNum = 1
         var slopFactor = 0.4
         var oneDiameter: CGFloat?
-//        while slopFactor >= 0.1 {
+        var oneRadius: CGFloat?
             for bubble in self.bubbleArr{
                 let tempRadius = CGFloat(1 - slopFactor) * bubble.radius
                 if(bubbleNum == 1){
                     bubble.radius = tempRadius
                     bubble.center = CGPoint(x: tempRadius, y: tempRadius)
                     oneDiameter = tempRadius*2
-                    floodFill.fillBoxes( CGPoint(x: bubble.center!.x+tempRadius, y: bubble.center!.y+tempRadius), lowerLeft: CGPoint(x: 0,y: 0))
+                    oneRadius = tempRadius
+                    floodFill.fillBoxes( CGPoint(x: 0, y: 0), lowerRight: CGPoint(x: bubble.center!.x+tempRadius, y: bubble.center!.y+tempRadius))
                 } else if ( bubbleNum == 2 ){
                     bubble.radius = tempRadius
                     if ( (oneDiameter! + tempRadius*2) <= width ) {
@@ -34,26 +36,40 @@ class BubbleCollection: NSObject {
                     } else if ((oneDiameter! + tempRadius*2) <= height){
                         bubble.center = CGPoint(x: tempRadius, y: oneDiameter! + tempRadius)
                     } else {
-                        bubble.center = CGPoint(x: oneDiameter! + tempRadius, y: oneDiameter! + tempRadius)
+                        let addToRadius = sqrt(pow(oneRadius!, 2) + pow(oneRadius!, 2)) 
+                        bubble.center = CGPoint(x: addToRadius + tempRadius, y: addToRadius + tempRadius)
                     }
-                    floodFill.fillBoxes( CGPoint(x: bubble.center!.x+tempRadius, y: bubble.center!.y+tempRadius), lowerLeft: CGPoint(x: bubble.center!.x-tempRadius, y: bubble.center!.y-tempRadius))
+                    floodFill.fillBoxes( CGPoint(x: bubble.center!.x-tempRadius, y: bubble.center!.y-tempRadius), lowerRight: CGPoint(x: bubble.center!.x+tempRadius, y: bubble.center!.y+tempRadius))
                 } else {
-                    bubble.center = CGPoint(x: CGFloat(arc4random_uniform(UInt32(floodFill.constraint - tempRadius))) , y: CGFloat(arc4random_uniform(UInt32(floodFill.constraint - tempRadius))))
-                    while (floodFill.checkIfBoxLocationIsOpen(CGPoint(x: bubble.center!.x+tempRadius, y: bubble.center!.y+tempRadius), lowerLeft: CGPoint(x: bubble.center!.x-tempRadius, y: bubble.center!.y-tempRadius)) == false) {
-                            bubble.center = CGPoint(x: CGFloat(arc4random_uniform(UInt32(floodFill.constraint - tempRadius))) , y: CGFloat(arc4random_uniform(UInt32(floodFill.constraint - tempRadius))))
+                    bubble.radius = tempRadius
+                    var x = CGFloat(arc4random_uniform(UInt32(floodFill.constraint - (tempRadius*2))))
+                    x = x + tempRadius
+                    var y = CGFloat(arc4random_uniform(UInt32(floodFill.constraint - (tempRadius*2))))
+                    y = y + tempRadius
+                    bubble.center = CGPoint(x: x, y: y)
+                    while (floodFill.checkIfBoxLocationIsOpen(CGPoint(x: bubble.center!.x-tempRadius, y: bubble.center!.y-tempRadius), lowerRight: CGPoint(x: bubble.center!.x+tempRadius, y: bubble.center!.y+tempRadius)) == false) {
+                        x = CGFloat(arc4random_uniform(UInt32(floodFill.constraint - (tempRadius*2))))
+                        x = x + tempRadius
+                        y = CGFloat(arc4random_uniform(UInt32(floodFill.constraint - (tempRadius*2))))
+                        y = y + tempRadius
+                        bubble.center = CGPoint(x: x, y: y)
                     }
                 }
                 bubbleNum++
             }
-//            slopFactor = slopFactor - 0.1;
-//            bubbleNum = 0
-//        }
     }
     
     func writeCircleToUI(){
         for bubble in bubbleArr {
             bubble.writePath()
         }
+    }
+    
+    func setLabels() -> Array<UILabel>{
+        for bub in bubbleArr {
+            bubLabelArr.append(bub.label)
+        }
+        return self.bubLabelArr
     }
 
 }
